@@ -98,18 +98,21 @@ var populateDB = function() {
  
     var persons = [
     {
-        name: "David Rus",
-        category: "1",
+        firstname: "David",
+        surname: "Rus",
+        role: "1",
         id: 0
     },
     {
-        name: "Josef Šíma",
-        category: "2",
+        firstname: "Josef",
+        surname: "Šíma",
+        role: "1",
         id: 1
     },
     {
-        name: "Marek Fojtl",
-        category: "2",
+        firstname: "Marek",
+        surname: "Fojtl",
+        role: "1",
         id: 2
     }];
  
