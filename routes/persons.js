@@ -100,19 +100,19 @@ var populateDB = function() {
     {
         firstname: "David",
         surname: "Rus",
-        role: "1",
+        role: 1,
         id: 0
     },
     {
         firstname: "Josef",
         surname: "Šíma",
-        role: "1",
+        role: 1,
         id: 1
     },
     {
         firstname: "Marek",
         surname: "Fojtl",
-        role: "1",
+        role: 1,
         id: 2
     }];
  
