@@ -1,12 +1,8 @@
 var mongo = require('mongodb');
- 
-var Server = mongo.Server,
-    Db = mongo.Db;
+var db;
 
-var server = new Server(process.env.MONGOHQ_URL || "localhost", {save:false});
-db = new Db('persons', server);
-
-db.open(function(err, db) {
+mongo.Db.connect(process.env.MONGOHQ_URL || "mongodb://localhost:27017", function(err, client) {
+    db = client;
     if(!err) {
         console.log("Connected to 'persons' database");
         db.collection('persons', {strict:true}, function(err, collection) {
