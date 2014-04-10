@@ -22,7 +22,7 @@ exports.findById = function(req, res) {
     var id = req.params.id;
     console.log('Retrieving person: ' + id);
     db.collection('persons', function(err, collection) {
-        collection.findOne({'id':id*1}, function(err, item) {
+        collection.findOne({'id':parseInt(id, 10)}, function(err, item) {
             res.send(item);
         });
     });
@@ -43,7 +43,7 @@ exports.addPerson = function(req, res) {
     db.collection('persons', function(err, collection) {
         collection.find().sort({id:-1}).toArray(function(err, items) {
             console.log(items);
-            person.id = (items[0].id*1)+1;
+            person.id = (parseInt(items[0].id, 10))+1;
             db.collection('persons', function(err, collection) {
                 collection.insert(person, {safe:true}, function(err, result) {
                     if (err) {
@@ -66,7 +66,7 @@ exports.updatePerson = function(req, res) {
     delete person._id;
     console.log(JSON.stringify(person));
     db.collection('persons', function(err, collection) {
-        collection.update({'id':id*1}, person, {safe:true}, function(err, result) {
+        collection.update({'id':parseInt(id, 10)}, person, {safe:true}, function(err, result) {
             if (err) {
                 console.log('Error updating person: ' + err);
                 res.send({'error':'An error has occurred'});
@@ -82,7 +82,7 @@ exports.deletePerson = function(req, res) {
     var id = req.params.id;
     console.log('Deleting person: ' + id);
     db.collection('persons', function(err, collection) {
-        collection.remove({'id':id*1}, {safe:true}, function(err, result) {
+        collection.remove({'id':parseInt(id, 10)}, {safe:true}, function(err, result) {
             if (err) {
                 res.send({'error':'An error has occurred - ' + err});
             } else {
