@@ -15,6 +15,8 @@ db.open(function(err, db) {
                 populateDB();
             }
         });
+    }else{
+        console.log("DB Error: ",err);
     }
 });
 
