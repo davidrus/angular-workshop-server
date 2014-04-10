@@ -20,5 +20,5 @@ app.put('/persons/:id', persons.updatePerson);
 app.delete('/persons/:id', persons.deletePerson);
 
  
-app.listen(80);
+app.listen(process.env.PORT || 6666);
 console.log('Listening on port 80...');
