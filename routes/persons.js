@@ -3,7 +3,7 @@ var mongo = require('mongodb');
 var Server = mongo.Server,
     Db = mongo.Db;
 
-var server = new Server('localhost', 27017, {save:false});
+var server = new Server(process.env.MONGOHQ_URL || "localhost", {save:false});
 db = new Db('persons', server);
 
 db.open(function(err, db) {
