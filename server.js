@@ -1,4 +1,3 @@
-
 var express = require('express'),
     cors = require('cors'),
     persons = require('./routes/persons');
