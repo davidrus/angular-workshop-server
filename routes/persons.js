@@ -6,6 +6,7 @@ mongo.Db.connect(process.env.MONGOHQ_URL || "mongodb://localhost:27017", functio
     if(!err) {
         console.log("Connected to 'persons' database");
         db.collection('persons', {strict:true}, function(err, collection) {
+            populateDB();
             if (err) {
                 console.log("The 'persons' collection doesn't exist. Creating it with sample data...");
                 populateDB();
